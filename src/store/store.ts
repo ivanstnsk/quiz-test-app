@@ -57,7 +57,7 @@ export const useStore = create<Store>()((set, get) => ({
   current: 0,
   phase: "start",
   hasPrev: () => get().current > 0,
-  hasNext: () => get().current < get().questions.length,
+  hasNext: () => get().current + 1 < get().questions.length,
   start: () =>
     set((state: any) => ({
       phase: "quiz",
