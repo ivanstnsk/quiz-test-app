@@ -3,6 +3,7 @@ import {
   Paragraph,
   Section,
   Title,
+  SubTitle,
 } from "../../../components/UI.styled";
 import { useStore } from "../../../store";
 
@@ -15,7 +16,10 @@ export default function QuizFinish(props: Props) {
     <>
       <Section>
         <Title>FINISH</Title>
-        <div>{`Your score: ${score} / ${getPossibleScore()}`}</div>
+        <SubTitle>{`Your grade: ${Math.floor(
+          (score / getPossibleScore()) * 100
+        )}%`}</SubTitle>
+        <SubTitle>{`Actual score: ${score} points of ${getPossibleScore()}`}</SubTitle>
       </Section>
       <Section>
         <Paragraph>Click finish button to finish the Quiz</Paragraph>

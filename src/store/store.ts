@@ -34,13 +34,19 @@ const QUESTIONS: Question[] = [
     title: "1 + 1",
     variants: ["2", "3", "4", "100"],
     answer: "2",
-    points: 10,
+    points: 4,
   },
   {
     title: "2 + 3",
     variants: ["11", "5", "7", "4"],
     answer: "5",
-    points: 10,
+    points: 8,
+  },
+  {
+    title: "1 * 9",
+    variants: ["9", "1", "19", "9,3"],
+    answer: "9",
+    points: 13,
   },
 ];
 
@@ -55,12 +61,15 @@ export const useStore = create<Store>()((set, get) => ({
   start: () =>
     set((state: any) => ({
       phase: "quiz",
+      current: 0,
+      score: 0,
       answers: state.questions.map(() => ""),
     })),
   finish: () =>
     set((state: any) => ({
       phase: "start",
       current: 0,
+      score: 0,
       answers: state.questions.map(() => ""),
     })),
   next: () =>
